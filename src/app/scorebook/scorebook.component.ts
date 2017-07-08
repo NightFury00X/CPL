@@ -6,16 +6,26 @@ import {ScoreService} from "./service/score.service";
     selector: 'app-scorebook',
     templateUrl: './scorebook.component.html',
     styleUrls: ['./scorebook.component.css'],
-    providers:[ScoreService]
+    providers: [ScoreService]
 })
 export class ScorebookComponent implements OnInit {
 
     PAGE_TYPE = PAGE_HEADER_TYPE.SCHEDULE;
+    isShow: boolean;
 
-    constructor(private scoreService: ScoreService) {
+    constructor() {
     }
 
     ngOnInit() {
+    }
+
+    onNext() {
+        console.log('Open');
+        this.isShow = true;
+    }
+
+    onCancel() {
+        this.isShow = false;
     }
 
 }

@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <div class="tabbable">
                     <ul class="nav nav-tabs nav-tabs-highlight">
-                        <li [ngClass]="{'active': isTeamChanged}">
+                        <li class="active">
                             <a (click)="onBattingScore($event)" data-toggle="tab" class="legitRipple"
                                aria-expanded="true"><i class="icon-menu7 position-left"></i>
                                 Batting Score Book</a>
@@ -25,6 +25,11 @@
 
                     <app-bowling-score [teamId]="teamId" *ngIf="isBowlingScore"></app-bowling-score>
                 </div>
+            </div>
+
+            <div class="panel-footer padding-20">
+                <button class="btn btn-success legitRipple"><i class="fa fa-check"></i> Submit</button>
+                <button class="btn btn-danger legitRipple"><i class="fa fa-remove"></i> Cancel</button>
             </div>
         </div>
     </div>

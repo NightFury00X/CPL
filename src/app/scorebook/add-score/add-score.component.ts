@@ -9,13 +9,13 @@ declare let jQuery: any;
 })
 export class AddScoreComponent implements OnInit, AfterViewInit {
     isTeamSelected: boolean;
-    isBattingScore: boolean;
-    isBowlingScore: boolean;
     teamId: number;
     teamA: boolean;
     teamB: boolean;
+    isDisabled: boolean;
 
-    constructor(private scoreService: ScoreService) {
+
+    constructor() {
     }
 
     ngOnInit() {
@@ -26,8 +26,9 @@ export class AddScoreComponent implements OnInit, AfterViewInit {
     }
 
     onTeamChange(value) {
+        this.isDisabled = true;
         this.teamId = value;
-        this.scoreService.onTeamChanged.emit(value);
+        // this.scoreService.onTeamChanged.emit(value);
         if (value === 1) {
             this.teamA = true;
             this.teamB = false;
@@ -36,19 +37,12 @@ export class AddScoreComponent implements OnInit, AfterViewInit {
             this.teamB = true;
         }
         this.isTeamSelected = true;
-        this.isBattingScore = true;
     }
 
-    onBattingScore($event) {
-        $event.preventDefault();
-        this.isBattingScore = true;
-        this.isBowlingScore = false;
-    }
-
-    onBowlingScore($event) {
-        $event.preventDefault();
-        this.isBattingScore = false;
-        this.isBowlingScore = true;
+    onTeamSelectionCancel() {
+        this.isDisabled = false;
+        this.teamId = null;
+        this.teamA = this.teamB = false;
     }
 
 }
