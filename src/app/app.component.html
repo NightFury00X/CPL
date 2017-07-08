@@ -1,0 +1,32 @@
+<div class="notifications">
+    <app-notification *ngFor="let msg of notifications | async" [notification]="msg">
+    </app-notification>
+</div>
+
+
+<app-header></app-header>
+<router-outlet *ngIf="false"></router-outlet>
+<!-- Page container -->
+<div class="page-container" >
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <app-menu class="sidebar sidebar-main"></app-menu>
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <router-outlet></router-outlet>
+
+            <div class="content">
+                <app-footer></app-footer>
+            </div>
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->

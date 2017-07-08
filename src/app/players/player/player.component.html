@@ -1,0 +1,112 @@
+<app-page-header [Type]="PAGE_TYPE"></app-page-header>
+
+<div class="content">
+    <!-- Horizontal form options -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- 2 columns form -->
+            <form [formGroup]="playerForm" (ngSubmit)="onSubmit(playerForm.valid, playerForm.value)" class="form-horizontal" action="#">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Create Player</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Player Name:</label>
+                                        <div class="col-lg-9">
+                                            <input formControlName="playerName" type="text" class="form-control" placeholder="Player Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Playing Role:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select playing role</option>
+                                                <option *ngFor="let role of playingRole"
+                                                        [value]="role.value">{{role.label}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Batting Style:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select batting style</option>
+                                                <option *ngFor="let style of battingStyle"
+                                                        [value]="style.value">{{style.label}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Bowling Style:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select bowling style</option>
+                                                <option *ngFor="let style of bowlingStyle"
+                                                        [value]="style.value">{{style.label}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Nick Name:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" placeholder="Team Color">
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <fieldset>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Fielding Position:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" placeholder="Team Color">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <div class="thumbnail">
+                                                <div class="thumb thumb-slide">
+                                                    <img src="assets/images/demo/users/face11.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="text-left">
+                                    <button type="submit" class="btn btn-primary">Save <i
+                                        class="icon-arrow-right14"></i></button>
+                                    <button type="reset" class="btn btn-danger">Reset <i
+                                        class="glyphicon glyphicon-remove"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <!-- /2 columns form -->
+
+        </div>
+    </div>
+    <!-- /vertical form options -->
+</div>

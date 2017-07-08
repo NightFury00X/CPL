@@ -1,0 +1,12 @@
+.list-group{
+    border: none;
+    border-radius: inherit;
+    padding:0;
+}
+.list-group-item{
+    padding: 0px 20px;
+}
+
+.list-group-item-heading{
+    text-align: justify;
+}

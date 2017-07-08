@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel border-left-lg border-left-success">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="no-margin-top"><a href="task_manager_detailed.html">#18. Help Web devs with HTML
+                        </a></h6>
+                        <p class="mb-15">Samsa was a travelling salesman - and above it there hung..</p>
+
+                        <a href="#"><img src="assets/images/demo/users/face24.jpg" class="img-circle img-xs" alt=""></a>
+                        <a href="#"><img src="assets/images/demo/users/face1.jpg" class="img-circle img-xs" alt=""></a>
+                        <a href="#" class="text-default">&nbsp;<i class="icon-plus22"></i></a>
+                        <div style="margin-top: 20px">
+                            <button [ngClass]="{'btn-success': teamA}" (click)="onTeamChange(1)" type="button"
+                                    class="btn btn-slate legitRipple"><i
+                                class="fa fa-users position-left"></i> Team 1
+                            </button>
+                            <button [ngClass]="{'btn-success': teamB}" (click)="onTeamChange(2)" type="button"
+                                    class="btn btn-slate legitRipple"><i
+                                class="fa fa-users position-left"></i> Team 2
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-manage-score-book *ngIf="teamId" [teamId]="teamId"></app-manage-score-book>

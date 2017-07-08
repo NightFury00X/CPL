@@ -1,0 +1,9 @@
+<div id="jGrowl" class="bottom-right jGrowl">
+    <div
+        class="jGrowl-notification alert ui-state-highlight ui-corner-all alert-arrow-left alert-bordered alert-styled-left alert-{{notification.meta.type}}"
+        style="display: block;">
+        <button class="jGrowl-close" (click)="closeNotification($event)">×</button>
+        <div class="jGrowl-header">{{notification.meta.title}}</div>
+        <div [innerHTML]="notification.meta.message"></div>
+    </div>
+</div>

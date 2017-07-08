@@ -1,0 +1,21 @@
+<div *ngIf="modal.opened" class="sweet-overlay" tabindex="-1" style="opacity: 1.11; display: block;"></div>
+
+<div id="modal_h1" *ngIf="modal.opened" class="modal fade in" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button *ngIf="modal.closeable" type="button" class="close" (click)="onClose()">×</button>
+                <h1 class="modal-title">{{modal.title}}</h1>
+            </div>
+
+            <div class="modal-body">
+                <ng-content select=".modal-content-body"></ng-content>
+            </div>
+
+            <div class="modal-footer">
+                <ng-content select=".modal-content-footer"></ng-content>
+            </div>
+        </div>
+    </div>
+</div>
+

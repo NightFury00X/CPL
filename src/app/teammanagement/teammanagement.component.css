@@ -1,0 +1,8 @@
+.selection:hover {
+    background-color: #1abc9c;
+    cursor: pointer !important;
+}
+
+.selection:hover .text-muted, .selection:hover .media-heading{
+    color: #fff;
+}

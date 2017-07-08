@@ -1,0 +1,31 @@
+.sweet-alert {
+    top: 0px !important;
+    margin-top: 0px !important;
+    position: absolute !important;
+}
+
+.thumb-rounded, .thumb-rounded img {
+    border-radius: 0;
+}
+
+.btn-labeled.btn-xlg {
+    padding-left: 50px;
+    width: 200px;
+}
+
+.thumb img:not(.media-preview) {
+    width: 80%;
+}
+
+.confirm {
+    display: inline-block;
+    background-color: #f44336;
+}
+
+.confirm:hover{
+    background-color: #f44336;
+}
+
+.confirm:active{
+    background-color: #a21309;
+}

@@ -1,0 +1,58 @@
+<app-page-header [Type]="PAGE_TYPE"></app-page-header>
+
+
+<!-- Content area -->
+<div class="content">
+
+    <!-- Accordion and collapsible -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- Accordion with right control button -->
+            <div class="panel-group panel-group-control panel-group-control-right content-group-lg"
+                 id="accordion-control-right">
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-control-right"
+                               href="#accordion-control-right-group1">League: CPL-8</a>
+                        </h6>
+                    </div>
+                    <div id="accordion-control-right-group1" class="panel-collapse collapse in">
+                        <div class="panel-body" style="padding: 10px 0 0 0">
+                            <ul class="list-group">
+
+                                <li class="list-group-item">
+                                    <button (click)="onAddRule()" type="button"
+                                            class="btn btn-info btn-labeled btn-xs legitRipple"><b><i
+                                        class="icon-add"></i></b> Add new Rule
+                                    </button>
+                                </li>
+
+                                <li class="list-group-divider"></li>
+
+                                <li class="list-group-item">
+                                    <p class="list-group-item-heading"><i class="fa fa-book position-left"></i> Rule 1
+                                        <button class="label label-default position-right">Edit</button>
+                                        <button class="label label-danger position-right" (click)="remove()">Remove
+                                        </button>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /accordion with right control button -->
+
+        </div>
+    </div>
+    <!-- /accordion and collapsible -->
+    <app-add *ngIf="modal.opened" [modal]="modal"></app-add>
+    <app-confirm
+        [isConfirm]="true"
+        *ngIf="isDelete"
+        (onOk)="onCancel($event)">
+    </app-confirm>
+</div>
+<!-- /content area -->

@@ -1,0 +1,708 @@
+<app-page-header [Type]="PAGE_TYPE"></app-page-header>
+
+<div class="content">
+    <!-- Horizontal form options -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- 2 columns form -->
+            <form class="form-horizontal" action="#">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Select Players</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Select League:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select League</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <button (click)="onList()" type="submit" class="btn btn-primary">Team's List <i
+                                class="icon-list position-right"></i></button>
+                            <button (click)="onNext()" type="submit" class="btn btn-primary">Next <i
+                                class="icon-arrow-right14 position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /2 columns form -->
+        </div>
+    </div>
+    <!-- /vertical form options -->
+
+    <!-- Players List -->
+    <div class="row" *ngIf="isPlayers">
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div (click)="onSelect()" class="panel panel-body selection">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="assets/images/demo/users/face11.jpg" style="width: 70px; height: 70px;"
+                             class="img-circle img-md" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">Akhilesh Maithani</h6>
+                        <p class="text-muted">Batsman</p>
+
+                        <ul class="icons-list">
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Batsman"><i class="icon-google-drive"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="Bowler"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" data-popup="tooltip" title="" data-container="body"
+                                   data-original-title="All-Rounder"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Players List -->
+
+
+    <div class="row" *ngIf="isPlayersList">
+        <div class="col-md-12">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Justified tabs. Left icons<a class="heading-elements-toggle"><i
+                        class="icon-more"></i></a></h6>
+                    <!--<div class="heading-elements">
+                        <ul class="icons-list">
+                            <li><a data-action="reload"></a></li>
+                        </ul>
+                    </div>-->
+                </div>
+
+                <div class="panel-body">
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
+                            <li class="active">
+                                <a href="#justified-left-icon-tab1" data-toggle="tab" class="legitRipple"
+                                   aria-expanded="true"><i class="icon-menu7 position-left"></i>
+                                    Team 1</a>
+                            </li>
+                            <li>
+                                <a href="#justified-left-icon-tab1" data-toggle="tab" class="legitRipple"
+                                   aria-expanded="true"><i class="icon-menu7 position-left"></i>
+                                    Team 2</a>
+                            </li>
+                            <li>
+                                <a href="#justified-left-icon-tab1" data-toggle="tab" class="legitRipple"
+                                   aria-expanded="true"><i class="icon-menu7 position-left"></i>
+                                    Team 3</a>
+                            </li>
+                            <li>
+                                <a href="#justified-left-icon-tab1" data-toggle="tab" class="legitRipple"
+                                   aria-expanded="true"><i class="icon-menu7 position-left"></i>
+                                    Team 4</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <ul class="media-list">
+                                <li class="media-header">Players</li>
+
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle">
+                                        <img src="assets/images/demo/users/face11.jpg" class="img-circle img-md" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-heading text-semibold">Akhilesh maithani</div>
+                                        <span class="text-muted">All-Rounder</span>
+                                    </div>
+
+                                    <div class="media-right media-middle">
+                                        <ul class="icons-list text-nowrap">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                    class="icon-menu9"></i></a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="#" data-toggle="modal" data-target="#call"><i
+                                                        class="icon-profile"></i> View Profile</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-confirm
+    [selectPlayer]="true"
+    *ngIf="isSelect"
+    (onOk)="onCancel($event)"
+    (onCancel)="onCancel($event)"
+>
+</app-confirm>

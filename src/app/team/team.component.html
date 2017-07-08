@@ -1,0 +1,121 @@
+<app-page-header [Type]="PAGE_TYPE"></app-page-header>
+
+<div class="content">
+    <!-- Horizontal form options -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- 2 columns form -->
+            <form class="form-horizontal" action="#">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Create Team</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">League:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select League</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Enter Team Name:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" placeholder="Team Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Team owner:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" placeholder="Team Owner">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Team Color:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" placeholder="Team Color">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Team tag Line:</label>
+                                        <div class="col-lg-9">
+                                            <textarea rows="5" cols="5" class="form-control" placeholder="Enter your tag line here"></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /2 columns form -->
+
+        </div>
+
+        <div class="col-md-12">
+            <!-- Scrollable datatable -->
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Team Details</h5>
+                </div>
+
+                <div class="panel-body">
+
+                </div>
+
+                <table class="table datatable-scroll-y" width="100%">
+                    <thead>
+                    <tr>
+                        <th>League Name</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>CPL-9</td>
+                        <td><a>2016</a></td>
+                        <td><span class="label label-danger">Inactive</span></td>
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#"><i class="glyphicon glyphicon-edit"></i> Edit</a></li>
+                                        <li><a href="#"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /scrollable datatable -->
+        </div>
+    </div>
+    <!-- /vertical form options -->
+</div>

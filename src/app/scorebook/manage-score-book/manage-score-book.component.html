@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h6 class="panel-title">Batting / Bowling Score Book<a
+                    class="heading-elements-toggle"><i
+                    class="icon-more"></i></a></h6>
+            </div>
+
+            <div class="panel-body">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs nav-tabs-highlight">
+                        <li [ngClass]="{'active': isTeamChanged}">
+                            <a (click)="onBattingScore($event)" data-toggle="tab" class="legitRipple"
+                               aria-expanded="true"><i class="icon-menu7 position-left"></i>
+                                Batting Score Book</a>
+                        </li>
+                        <li>
+                            <a (click)="onBowlingScore($event)" data-toggle="tab" class="legitRipple"
+                               aria-expanded="true"><i class="icon-menu7 position-left"></i>
+                                Bowling Score Book</a>
+                        </li>
+                    </ul>
+                    <app-batting-score [teamId]="teamId" *ngIf="isBattingScore"></app-batting-score>
+
+                    <app-bowling-score [teamId]="teamId" *ngIf="isBowlingScore"></app-bowling-score>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

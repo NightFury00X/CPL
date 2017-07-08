@@ -1,0 +1,18 @@
+.jGrowl {
+    position: inherit;
+}
+
+.jGrowl, .alert {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    transition: all .5s;
+    transition-timing-function: ease-in-out;
+}
+
+.animated-fast {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+}
+
+

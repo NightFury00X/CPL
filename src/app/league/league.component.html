@@ -1,0 +1,92 @@
+<app-page-header [Type]="PAGE_TYPE"></app-page-header>
+
+<div class="content">
+    <!-- Horizontal form options -->
+    <div class="row">
+        <div class="col-md-6">
+
+            <!-- Basic layout-->
+            <form novalidate [formGroup]="leagueForm" (ngSubmit)="onSubmit(leagueForm.valid, leagueForm.value)"
+                  class="form-horizontal">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Create League</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">League Name:</label>
+                            <div class="col-lg-9">
+                                <input required formControlName="leagueName" type="text" class="form-control"
+                                       placeholder="Enter league name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Year:</label>
+                            <div class="col-lg-9">
+                                <input formControlName="leagueYear" type="text" class="form-control" placeholder="Year">
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <button [disabled]="!leagueForm.valid" type="submit" class="btn btn-primary">Save <i
+                                class="icon-arrow-right14 position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /basic layout -->
+
+        </div>
+
+        <div class="col-md-6">
+            <!-- Scrollable datatable -->
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h5 class="panel-title">League Details</h5>
+                </div>
+
+                <div class="panel-body">
+
+                </div>
+
+                <table class="table datatable-scroll-y" width="100%">
+                    <thead>
+                    <tr>
+                        <th>SNO.</th>
+                        <th>League Name</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let league of leagueList; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{league.leagueName}}</td>
+                        <td>{{league.leagueYear}}</td>
+                        <td><span class="label label-default">COMPLETED {{i + 1}}</span></td>
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#"><i class="glyphicon glyphicon-edit"></i> Edit</a></li>
+                                        <li><a href="#"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /scrollable datatable -->
+        </div>
+    </div>
+    <!-- /vertical form options -->
+</div>

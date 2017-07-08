@@ -1,0 +1,94 @@
+<app-page-header [Type]="PAGE_TYPE"></app-page-header>
+
+
+<div class="content">
+    <!-- Horizontal form options -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- 2 columns form -->
+            <form class="form-horizontal" action="#">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Create Schedule</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">League:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select League</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Date:</label>
+                                        <div class="col-lg-9">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                                <input type="text" class="form-control pickadate-limits picker__input"
+                                                       placeholder="Pick a date" readonly=""
+                                                       aria-haspopup="true" aria-expanded="false" aria-readonly="false">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Match:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select Match</option>
+                                                <option value="1">1st Match</option>
+                                                <option value="2">2nd Match</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Team 1:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select Team 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Team 2:</label>
+                                        <div class="col-lg-9">
+                                            <select required (change)="showData($event)" class="bootstrap-select"
+                                                    data-width="100%">
+                                                <option value="">Select Team 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Save <i
+                                class="icon-arrow-right14 position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /2 columns form -->
+
+        </div>
+    </div>
+    <!-- /vertical form options -->
+
+
+    <!-- Schedule List -->
+    <app-list></app-list>
+    <!-- /Schedule List -->
+</div>

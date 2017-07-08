@@ -1,0 +1,6 @@
+.form-control.ng-invalid.ng-touched {
+    outline: 0;
+    border-color: transparent;
+    border-bottom-color: #c6140d;
+    box-shadow: 0 1px 0 #c6140d;
+}

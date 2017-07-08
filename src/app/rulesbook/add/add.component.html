@@ -1,0 +1,28 @@
+<app-modals (close)="onClose($event)" (onhide)="onClose($event)" [modal]="modal">
+    <div class="modal-content-body">
+        <!-- 2 columns form -->
+        <form action="#">
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label">Rule:</label>
+                            <textarea rows="5"
+                                      cols="5"
+                                      class="form-control"
+                                      placeholder="Enter your tag line here">
+                            </textarea>
+                        </div>
+                    </fieldset>
+
+                </div>
+            </div>
+        </form>
+        <!-- /2 columns form -->
+    </div>
+    <div class="modal-content-footer">
+        <button *ngIf="modal.closeable" type="button" class="btn btn-default legitRipple" (click)="onClose()">Close
+        </button>
+        <button type="button" class="btn btn-primary legitRipple">Add Rule</button>
+    </div>
+</app-modals>

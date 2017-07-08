@@ -1,0 +1,9 @@
+.sweet-overlay {
+    background-color: rgba(0, 0, 0, .9)
+}
+
+.sweet-alert {
+    display: block;
+    margin-top: 0px;
+    top: 50px;
+}
