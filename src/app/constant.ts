@@ -5,6 +5,18 @@
  ];
  }*/
 
+export const TOKEN = {
+    key: 'token'
+};
+
+export const REFRESH_TOKEN = {
+    key: 'refresh_token'
+};
+
+export const REMEMBER_ME_ENABLED = {
+    key: 'remember_me_enabled'
+};
+
 export const PAGE_HEADER_TYPE = {
     LEAGUE: 'league',
     RULES: 'Rules Book',

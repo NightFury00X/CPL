@@ -1,24 +1,21 @@
-import {GenericModel, JsonLD} from "../utils/index";
+import {GenericModel} from "../utils/index";
 
-export interface ILeague extends JsonLD {
-    id?: string;
+export interface ILeagueModal {
+    _id?: string;
+    createdAt?: string;
     leagueName?: string;
     leagueYear?: string;
+    updatedAt?: string;
 }
 
 export const DEFAULT_LEAGUE = {
-    leagueName: 'abc',
-    leagueyear: '2017'
+    leagueName: '',
+    leagueyear: ''
 }
 
-export class LeagueModel extends GenericModel implements ILeague {
-    constructor(league?: ILeague) {
-        super(league);
-        return Object.assign(this, DEFAULT_LEAGUE, league);
-    }
-
-    serialize() {
-        let payload = Object.assign({}, this);
-        return payload;
+export class LeagueModel extends GenericModel implements ILeagueModal {
+    constructor(attributes: ILeagueModal = DEFAULT_LEAGUE) {
+        super(attributes);
+        return Object.assign(this, attributes);
     }
 }

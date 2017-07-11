@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "./auth.service";
+import {AuthService1} from "./auth.service";
 import {NotificationService} from "./notifications/services/notification.service";
 import {NotificationModel} from "./notifications/notification/notification.model";
 import {Observable} from "rxjs/Observable";
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     isLogedIn: boolean = true;
     notifications: Observable<NotificationModel[]>;
 
-    constructor(private authService: AuthService,
+    constructor(private authService: AuthService1,
                 public notificationsSrv: NotificationService) {
         this.authService.loggedInStatus.subscribe(
             (status: boolean) => this.isLogedIn = status

@@ -8,6 +8,7 @@
             <!-- Basic layout-->
             <form novalidate [formGroup]="leagueForm" (ngSubmit)="onSubmit(leagueForm.valid, leagueForm.value)"
                   class="form-horizontal">
+                <input type="hidden" formControlName="_id">
                 <div class="panel panel-flat">
                     <div class="panel-heading">
                         <h5 class="panel-title">Create League</h5>
@@ -75,8 +76,10 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#"><i class="glyphicon glyphicon-edit"></i> Edit</a></li>
-                                        <li><a href="#"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
+                                        <li><a (click)="onEdit(league._id)"><i class="glyphicon glyphicon-edit"></i>
+                                            Edit</a></li>
+                                        <li><a (click)="onDelete(league._id)"><i class="glyphicon glyphicon-remove"></i>
+                                            Delete</a></li>
                                     </ul>
                                 </li>
                             </ul>
