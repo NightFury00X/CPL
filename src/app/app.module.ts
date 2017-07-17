@@ -40,7 +40,8 @@ import {ManageScoreBookComponent} from './scorebook/manage-score-book/manage-sco
 import {AuthService} from "./services/auth.service";
 import {HttpProxyService} from "./services/http-proxy.service";
 import {HttpWrapperService} from "./services/http-wrapper.service";
-import {TokenManagerService} from "./services/token-manager.service";
+import {JwtTokenHelper, TokenManagerService} from "./services/token-manager.service";
+import {AppService} from "./services/app.service";
 
 @NgModule({
     declarations: [
@@ -82,7 +83,7 @@ import {TokenManagerService} from "./services/token-manager.service";
         AppRoutingModule,
         BrowserAnimationsModule
     ],
-    providers: [AuthService1, AuthGuard, NotificationService, AuthService, HttpProxyService, HttpWrapperService, TokenManagerService],
+    providers: [AuthService1, AuthGuard, NotificationService, AuthService, HttpProxyService, HttpWrapperService, TokenManagerService, AppService, JwtTokenHelper],
     bootstrap: [AppComponent]
 })
 export class AppModule {

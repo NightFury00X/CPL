@@ -5,6 +5,11 @@
  ];
  }*/
 
+const POST_SIGNIN_ROUTE: any[] = ['./'];
+export const ROUTES = {
+    POST_SIGNIN_ROUTE
+};
+
 export const TOKEN = {
     key: 'token'
 };

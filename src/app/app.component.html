@@ -4,15 +4,14 @@
 </div>
 
 
-<app-header></app-header>
-<router-outlet *ngIf="false"></router-outlet>
+<app-header *ngIf="isLogedIn"></app-header>
 <!-- Page container -->
 <div class="page-container" >
 
     <!-- Page content -->
     <div class="page-content">
 
-        <app-menu class="sidebar sidebar-main"></app-menu>
+        <app-menu *ngIf="isLogedIn" class="sidebar sidebar-main"></app-menu>
 
         <!-- Main content -->
         <div class="content-wrapper">

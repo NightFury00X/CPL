@@ -5,7 +5,6 @@ import {NotificationService} from "../notifications/services/notification.servic
 import {NotificationModel} from "../notifications/notification/notification.model";
 import {ILeagueModal, LeagueModel} from "./league.model";
 import {LeagueService} from "./league.service";
-import {init} from "protractor/built/launcher";
 
 @Component({
     selector: 'app-league',
@@ -39,33 +38,11 @@ export class LeagueComponent implements OnInit {
     }
 
     getAllLeagues() {
-        this.leagueService.all().subscribe(
-            (response) => {
-                this.leagueList = response.league;
-            }
-        );
+
     }
 
     onSubmit(isValid: boolean, values: LeagueModel) {
         if (isValid) {
-            this.leagueService.onSave(values).subscribe(
-                (response) => {
-                    this.leagueList = response.league;
-                    this.leagueForm.reset();
-                    this.notificationsSrv.push(new NotificationModel({
-                        title: 'Success',
-                        message: 'League details added!',
-                        type: 'success',
-                    }));
-                },
-                (error) => {
-                    this.notificationsSrv.push(new NotificationModel({
-                        title: 'Error',
-                        message: error,
-                        type: 'danger',
-                    }));
-                }
-            );
         } else {
             this.notificationsSrv.push(new NotificationModel({
                 title: 'Error',
@@ -76,18 +53,10 @@ export class LeagueComponent implements OnInit {
     }
 
     onEdit(id: any) {
-        this.leagueService.findBy(id).subscribe(
-            (response: ILeagueModal) => {
-                console.log(response);
-                this.league = response;
-                this.initForm();
-            });
+
     }
 
     onDelete(id: any) {
-        this.leagueService.onDelete(id).subscribe(
-            (response) => {
-                this.leagueList = response.league;
-            });
+
     }
 }
