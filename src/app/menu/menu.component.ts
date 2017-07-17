@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService1} from "../auth.service";
 
 @Component({
     selector: 'app-menu',
@@ -8,16 +7,10 @@ import {AuthService1} from "../auth.service";
 })
 export class MenuComponent implements OnInit {
 
-    constructor(private authService: AuthService1) {
+    constructor() {
     }
 
     ngOnInit() {
-    }
-
-    logout() {
-        alert('Hi you have logged out!');
-        this.authService.loggedInStatus.emit(false);
-
     }
 
 }

@@ -6,8 +6,10 @@
  }*/
 
 const POST_SIGNIN_ROUTE: any[] = ['./'];
+const NON_AUTHORIZED_ROUTE: any[] = ['./Signin'];
 export const ROUTES = {
-    POST_SIGNIN_ROUTE
+    POST_SIGNIN_ROUTE,
+    NON_AUTHORIZED_ROUTE
 };
 
 export const TOKEN = {
