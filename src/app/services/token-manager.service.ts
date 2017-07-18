@@ -1,5 +1,9 @@
-import {Injectable} from '@angular/core';
-import {REFRESH_TOKEN, REMEMBER_ME_ENABLED, TOKEN} from "../constant";
+import {Injectable, Injector} from '@angular/core';
+import {REFRESH_TOKEN, REMEMBER_ME_ENABLED, ROUTES, TOKEN} from "../constant";
+import {Router} from "@angular/router";
+import {HttpWrapperService} from "./http-wrapper.service";
+import {appInjector} from "../appinjector";
+import { Location } from '@angular/common';
 
 declare let escape: any;
 
@@ -110,13 +114,89 @@ export class JwtTokenHelper {
         try {
             isTokenValid = this.isTokenExpired(token);
         } catch (e) {
-            console.error('Token has expired! ', e);
             isTokenValid = false;
         }
-        console.log('\n\n');
-        console.log('Token: ', this.decodeToken(token));
-        console.log('Expires on: ', this.getTokenExpirationDate(token));
-        console.log('Is expired? ', this.isTokenExpired(token));
-        console.log('\n\n');
     }
+}
+
+export function constructNonAuthorizedUrl(next?: ComponentInstruction, previous?: ComponentInstruction): any[] {
+    let injector: Injector = appInjector();
+    let location: Location = injector.get(Location);
+    let ref;
+    if (next) {
+        let refArr = [next.urlPath];
+        if (next.urlParams && next.urlParams.length) {
+            refArr.push(next.urlParams.join('&'));
+        }
+        ref = refArr.join('?');
+    }
+    return [
+        ...ROUTES.NON_AUTHORIZED_ROUTE,
+        {ref: ref || location.path()}
+    ];
+}
+
+export function checkIfHasPermission(next: ComponentInstruction, previous: ComponentInstruction) {
+    let injector: Injector = appInjector();
+    let router: Router = injector.get(Router);
+    // let jwtTokenHelper = new JwtTokenHelper();
+    // let tokenManager = new TokenManager();
+    let jwtTokenHelper = injector.get(JwtTokenHelper);
+    let tokenManager = injector.get(TokenManagerService);
+    let httpWrapper = injector.get(HttpWrapperService);
+    // let appSrv = injector.get(AppService);
+    let hasPermission;
+    return new Promise((resolve, reject) => {
+        let token, refreshToken, isRememberMe, isValidToken;
+        try {
+            // hasPermission =  !jwtTokenHelper.isTokenExpired(tokenManager.get());
+            token = tokenManager.get();
+            refreshToken = tokenManager.getRefreshToken();
+            isRememberMe = tokenManager.getRememberMe();
+            isValidToken = !jwtTokenHelper.isTokenExpired(token);
+            // User has permission if he has token && remember me is true!
+            hasPermission = (token && isValidToken) || (token && refreshToken && isRememberMe);
+        } catch (e) {
+            console.error('Error in token check ', e);
+            reject(e);
+        }
+        // TODO: find a way arround below hack
+        // (timeout needed in order not to execute checkIfHasPermission 2 times)!
+        setTimeout(() => {
+            if (token && !isValidToken && refreshToken && isRememberMe) {
+                // Try to refresh the token
+                httpWrapper.refreshToken()
+                    .map(res => res.json())
+                    .subscribe(
+                        (response) => {
+                            console.log('\n\nREFRESH TOKEN ', response);
+                            // TODO: post token actions
+                            // this.storeJwt(response);
+                            tokenManager.set(response[TOKEN.key], response[REFRESH_TOKEN.key]);
+                            jwtTokenHelper.toString(response.token);
+                            // appSrv.setToken(response.token);
+                            resolve(true);
+                        },
+                        (error) => {
+                            console.error('\n\nREFRESH TOKEN ', error);
+                            router.navigate(constructNonAuthorizedUrl(next, previous));
+                            resolve(false);
+                        }
+                    );
+            } else {
+                hasPermission = token && isValidToken;
+                // If all OK store tokena and containue!, else do below!
+                if (!hasPermission) {
+                    router.navigate(constructNonAuthorizedUrl(next, previous));
+                }
+                resolve(hasPermission);
+            }
+            // TODO: IF invalid token and isRememberMe && refreshToken - try to refresh token!
+            // If all OK store tokena and containue!, else do below!
+            // if (!hasPermission) {
+            //     router.navigate(constructNonAuthorizedUrl(next, previous));
+            // }
+            // resolve(hasPermission);
+        });
+    });
 }
