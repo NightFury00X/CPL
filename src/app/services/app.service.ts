@@ -1,12 +1,14 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {JwtTokenHelper, TokenManagerService} from "./token-manager.service";
+import {Router} from "@angular/router";
 
 export interface IUser {
-    username?: string;
+    userEmail?: string;
     userId?: string;
-    givenName?: string;
-    familyName?: string;
+    firstName?: string;
+    lastName?: string;
+    role?: string;
     fullName?(): string;
 }
 
@@ -24,23 +26,24 @@ export interface IApp {
 ;
 
 export class UserModel implements IUser {
-    username: string;
-    userId: string;
-    givenName: string;
-    familyName: string;
+    email: string;
+    _id: string;
+    firstName: string;
+    lastName: string;
+    role: string;
 
     constructor(public user: IUser = {}) {
         Object.assign(this, user);
     }
 
     fullName() {
-        return [this.givenName, this.familyName].join(' ');
+        return [this.firstName, this.lastName].join(' ');
     }
 }
-;
 
 export const DEFAULTS: IApp = {
-    isAuthenticated: false
+    isAuthenticated: false,
+    user: new UserModel()
 };
 
 @Injectable()
@@ -51,10 +54,8 @@ export class AppService {
     private _data: IApp = Object.assign({}, DEFAULTS);
 
     constructor(private jwtHelper: JwtTokenHelper,
-                private tokenManager: TokenManagerService
-                // private profilesSrv: ProfilesService,
-                // private notificationsSvc: NotificationsCollection
-    ) {
+                private tokenManager: TokenManagerService,
+                private router: Router) {
         this.initData();
         this.$stream = new BehaviorSubject(this._data);
     }
@@ -92,14 +93,22 @@ export class AppService {
         if (isAuthenticated) {
             try {
                 let decodedToken = this.jwtHelper.decodeToken(this.tokenManager.get());
-                data.user.username = decodedToken.username;
-                data.user.userId = decodedToken.userId;
+                data.user.userEmail = decodedToken.email;
+                data.user.userId = decodedToken._id;
+                data.user.firstName = decodedToken.firstName;
+                data.user.lastName = decodedToken.lastName;
             } catch (e) {
+                console.error(e);
             }
         } else { // signed out user - clear everything
             data = Object.assign({}, data, DEFAULTS);
         }
         return this._setData(data);
+    }
+
+    isAuthenticated() {
+        let data = Object.assign(this._data);
+        return data.isAuthenticated;
     }
 
     setUser(user: IUser) {

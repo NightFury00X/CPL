@@ -12,9 +12,10 @@ import {RulesComponent} from "./rulesbook/rules/rules.component";
 import {TeammanagementComponent} from "./teammanagement/teammanagement.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
 import {ScorebookComponent} from "./scorebook/scorebook.component";
+import {AuthGuard} from "./auth-guard.service";
 
 const appRoutes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', component: HomeComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'league', component: LeagueComponent},
     {path: 'rules', component: RulesComponent},

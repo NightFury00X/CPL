@@ -82,7 +82,7 @@ import {AppService} from "./services/app.service";
         AppRoutingModule,
         BrowserAnimationsModule
     ],
-    providers: [AuthService1, AuthGuard, NotificationService, AuthService, HttpProxyService, HttpWrapperService, TokenManagerService, AppService, JwtTokenHelper],
+    providers: [AuthGuard, NotificationService, AuthService, HttpProxyService, HttpWrapperService, TokenManagerService, AppService, JwtTokenHelper],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -6,13 +6,15 @@ import {ISignin, SigninModel} from "../auth/model/signin";
 import {Observable} from "rxjs/Observable";
 import {REFRESH_TOKEN, TOKEN} from "../constant";
 import {TokenManagerService} from "./token-manager.service";
+import {AppService} from "./app.service";
 
 @Injectable()
 export class AuthService {
     header: Headers = new Headers();
 
     constructor(public http: HttpProxyService,
-                private tokenManager: TokenManagerService) {
+                private tokenManager: TokenManagerService,
+                private appService: AppService) {
         this.setHeader();
     }
 
@@ -22,7 +24,6 @@ export class AuthService {
 
     signin(signinModel: ISignin): Observable<any> {
         let payload = new SigninModel(signinModel);
-        // Server expects '_username=uroslates%40gmail.com&_password=password'
         let prepareBody = (json: any) => {
             return Object.keys(json).map((key) => {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(json[key]);
@@ -32,6 +33,22 @@ export class AuthService {
         this.header.set('Content-Type', 'application/x-www-form-urlencoded');
         return this.http
             .post(API.SIGNIN, prepareBody(payload.serialize()), {headers: this.header});
+    }
+
+    signout(): Observable<any> {
+        return Observable.create((observer) => {
+            try {
+                // this.tokenManager.invalidate();
+                // this.appSrv.setToken(this.tokenManager.get());
+                this.appService.signout();
+                observer.next();
+                observer.complete();
+
+            } catch (e) {
+                console.error('Signout: ', e);
+                observer.error(e);
+            }
+        });
     }
 
     storeJwt(response: Response) {
